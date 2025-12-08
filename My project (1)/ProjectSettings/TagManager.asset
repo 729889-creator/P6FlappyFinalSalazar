@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: backround
+    uniqueID: 609083143
+    locked: 0
+  - name: midgroumd layer
+    uniqueID: 2685511323
+    locked: 0
+  - name: Foreground
+    uniqueID: 4135824953
+    locked: 0
