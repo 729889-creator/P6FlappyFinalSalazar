@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
     public static GameControl instance;
     public GameObject gameOverText;
-    public bool gameOver = false;   
+    public bool gameOver = false; 
+    public float scrollSpeed = -1.5f;
     // Start is called before the first frame update
     void Awake ()
     {
@@ -16,16 +18,19 @@ public class GameControl : MonoBehaviour
         }
         else if (instance != this)
         {
-            Destroy (gameObject);
+            Destroy(gameObject);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Add update logic here if needed
+        if (gameOver == true && Input.GetMouseButtonDown (0))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex);
+        }
     }
-    public void birdDied()
+    public void BirdDied()
     {
         gameOverText.SetActive (true);
         gameOver = true;    
