@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RepeatingBackround : MonoBehaviour
@@ -16,12 +17,19 @@ public class RepeatingBackround : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() { }
+    void Update()
+    {
+        if (transform.position.x < -groundHorizontalLength)
+        {
+            RepositionBackround();
+        }
+    }
 
     // Fix: Add a valid method definition for reposition
     private void RepositionBackround()
     {
-        // Implementation goes here
+        Vector2 groundOffset = new Vector2(groundHorizontalLength * 2f, 0);
+        transform.position = (Vector2)transform.position + groundOffset;
     }
 }
 
